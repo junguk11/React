@@ -124,12 +124,12 @@ const Register = () => {
                 value={username}
                 onChange={setUsername}
               />
+              {signUpError ? (
+                <span>로그인 시 사용할 ID를 입력해주세요.</span>
+              ) : (
+                <span>사용가능한 ID입니다.</span>
+              )}
             </div>
-            {signUpError ? (
-              <span>로그인 시 사용할 ID를 입력해주세요.</span>
-            ) : (
-              <span>사용가능한 ID입니다.</span>
-            )}
           </label>
           <label id="nickname-label">
             <span>닉네임</span>
@@ -141,12 +141,12 @@ const Register = () => {
                 value={nickname}
                 onChange={setNicname}
               />
+              {!nickname ? (
+                <span>닉네임을 입력해주세요.</span>
+              ) : (
+                <span>사용가능한 닉네임입니다.</span>
+              )}
             </div>
-            {!nickname ? (
-              <span>닉네임을 입력해주세요.</span>
-            ) : (
-              <span>사용가능한 닉네임입니다.</span>
-            )}
           </label>
           <label id="email-label">
             <span>이메일 주소</span>
@@ -158,12 +158,12 @@ const Register = () => {
                 value={email}
                 onChange={setEmail}
               />
+              {emailCheck(email) ? (
+                <span>사용 가능한 이메일입니다.</span>
+              ) : (
+                <span>올바른 이메일 형식이 아닙니다.</span>
+              )}
             </div>
-            {emailCheck(email) ? (
-              <span>사용 가능한 이메일입니다.</span>
-            ) : (
-              <span>올바른 이메일 형식이 아닙니다.</span>
-            )}
           </label>
           <label id="password-label">
             <span>비밀번호</span>
@@ -175,12 +175,12 @@ const Register = () => {
                 value={password}
                 onChange={onChangePassword}
               />
+              {passwordCheckF(password) ? (
+                <span>사용 가능한 비밀번호 입니다.</span>
+              ) : (
+                <span>영문, 숫자, 특수 문자 포함 6~15자</span>
+              )}
             </div>
-            {passwordCheckF(password) ? (
-              <span>사용 가능한 비밀번호 입니다.</span>
-            ) : (
-              <span>영문, 숫자, 특수 문자 포함 6~15자</span>
-            )}
           </label>
           <label id="password-check-label">
             <span>비밀번호 확인</span>
@@ -192,12 +192,12 @@ const Register = () => {
                 value={passwordCheck}
                 onChange={onChangePasswordCheck}
               />
+              {mismatchError ? (
+                <span>비밀번호가 일치하지 않습니다.</span>
+              ) : (
+                <span>비밀번호를 재입력 해주세요.</span>
+              )}
             </div>
-            {mismatchError ? (
-              <span>비밀번호가 일치하지 않습니다.</span>
-            ) : (
-              <span>비밀번호를 재입력 해주세요.</span>
-            )}
 
             {signUpSuccess && <span>회원가입되었습니다! 로그인해주세요.</span>}
           </label>
